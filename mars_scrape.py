@@ -10,7 +10,7 @@ def init_browser():
 
 
 def scrape():
-    browser 
+    browser  = init_browser()
     mars_data = {}
 
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
@@ -24,8 +24,8 @@ def scrape():
     article = soup.find('div', class_ = 'list_text')
     news_title = article.find('div', class_='content_title').text
     news_p = article.find("div", class_ ="article_teaser_body").text
-    print(news_title)
-    print(news_p)
+    #print(news_title)
+    #print(news_p)
 
     mars_data["news_title"] = news_title
     mars_data["summary"] = news_p
@@ -42,7 +42,7 @@ def scrape():
 
     featured_image = soup.find('figure', class_='lede').a['href']
     featured_image_url = 'https://www.jpl.nasa.gov' + featured_image
-    print(featured_image_url)
+   # print(featured_image_url)
 
     mars_data["featured_image_url"] = featured_image_url
 
